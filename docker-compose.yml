@@ -1,0 +1,38 @@
+version: "3"
+
+services:
+  app:
+    container_name: app
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 5000:5000
+    depends_on:
+      - database
+    networks:
+      - lib-network
+
+  database:
+    container_name: database
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - lib-database:/var/lib/postgresql/data
+    networks:
+      - lib-network
+
+networks:
+  lib-network:
+
+volumes:
+  lib-database:
