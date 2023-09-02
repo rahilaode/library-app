@@ -30,4 +30,4 @@ jobs:
       - name: Testing
         run: |
           sleep 10
-          pytest test/test_app.py   
+          pytest tests/test_app.py   
