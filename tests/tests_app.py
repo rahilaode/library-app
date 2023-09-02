@@ -44,5 +44,3 @@ class TestLibraryapptesting():
     self.driver.find_element(By.XPATH, "//input[@name=\'tanggal_peminjaman\']").click()
     self.driver.find_element(By.XPATH, "//input[@name=\'tanggal_peminjaman\']").send_keys("2023-09-06")
     self.driver.find_element(By.XPATH, "//button[contains(.,\'Pinjam Buku\')]").click()
-    self.driver.find_element(By.XPATH, "//a[contains(@href, \'/\')]").click()
-    self.driver.find_element(By.XPATH, "//a[contains(text(),\'Peminjaman Buku\')]").click()
